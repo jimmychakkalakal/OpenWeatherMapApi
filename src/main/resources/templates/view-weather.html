@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Information</title>
+</head>
+<body>
+<p th:text="${weather.date}"/>
+<img th:src="@{http://openweathermap.org/img/w/{icon}.png(icon=${weather.icon})}"/>
+<p th:text="${'Today it is ' + weather.temperature + 'ºC in ' + weather.city} + '.'"/>
+
+</body>
+</html>
