@@ -18,7 +18,7 @@ public class OWMControllerAdvice {
 
     public ResponseEntity<String> notFoundExceptionHandler(WebClientResponseException e) {
 
-        log.error(e.getMessage(), e);
+        log.error("Error occurred in API Call", e);
 
         if (e.getStatusCode() == HttpStatus.UNAUTHORIZED) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("User Unauthorized");
@@ -29,11 +29,11 @@ public class OWMControllerAdvice {
         }
 
         if (e.getStatusCode() == HttpStatus.BAD_REQUEST) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Bad request");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Bad request");
         }
 
         if (e.getStatusCode() == HttpStatus.TOO_MANY_REQUESTS) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Too Many Requests");
+            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body("Too Many Requests");
         }
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");

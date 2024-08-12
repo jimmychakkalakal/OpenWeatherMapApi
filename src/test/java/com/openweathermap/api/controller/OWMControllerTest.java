@@ -87,7 +87,7 @@ class OWMControllerTest {
         modelAndView.getViewName();
         assertEquals("view-weather", modelAndView.getViewName());
 
-        WeatherResponseInternal weatherResponseInternal = (WeatherResponseInternal)modelAndView.getModel().get("weather");
+        WeatherResponseInternal weatherResponseInternal = (WeatherResponseInternal) modelAndView.getModel().get("weather");
 
         assertNotNull(weatherResponseInternal);
         assertEquals("London", weatherResponseInternal.getCity());
@@ -96,7 +96,7 @@ class OWMControllerTest {
 
     }
 
-     private static WeatherApiResponse getWeatherApiResponse() {
+    private static WeatherApiResponse getWeatherApiResponse() {
         return WeatherApiResponse.builder()
                 .city("London")
                 .weatherDetails(WeatherDetails.builder()
