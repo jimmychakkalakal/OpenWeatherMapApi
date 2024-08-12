@@ -14,7 +14,7 @@ public class OpenWeatherMapApiProperties {
 
 
     @NotNull
-    private String baseUrl = "https://api.openweathermap.org/data/2.5/";
+    private String baseUrl = "https://api.openweathermap.org/data/2.5";
 
     @NotNull
     private String weather_temperature_endpoint = "/weather?q={cityName}&units=metric&APPID=";
