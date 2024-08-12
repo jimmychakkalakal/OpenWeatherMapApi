@@ -31,7 +31,7 @@ public class WeatherService {
     }
 
     public Mono<ForecastApiResponse> getWeatherForecastByCityName(String cityName) {
-        log.info("Calling OpenWeatherMap Forecast Api Endpoint to obtain Temperature Forecast for City {}", cityName);
+        log.info("Calling OpenWeatherMap Forecast Api to obtain Temperature Forecast for City {}", cityName);
 
         return this.webClient.get()
                 .uri(properties.getWeather_forecast_endpoint() + properties.getApiKey(), cityName)
