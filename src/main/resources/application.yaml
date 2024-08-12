@@ -6,4 +6,4 @@ open:
   weather:
     map:
       api:
-        apiKey: 6b4da8a30da0fd7dd877e72b95696520
+        apiKey:
