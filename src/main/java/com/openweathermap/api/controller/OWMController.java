@@ -53,7 +53,7 @@ public class OWMController {
             WeatherResponseInternal weatherResponseInternal = WeatherResponseInternal.builder()
                     .city(forecastApiResponse.getCity().getName())
                     .temperature(eachWeatherApiResponse.getWeatherDetails().getTemperature())
-                    .icon(eachWeatherApiResponse.getWeatherList().get(0).getIcon())
+                    .icon(eachWeatherApiResponse.getWeatherList().stream().findFirst().get().getIcon())
                     .date(eachWeatherApiResponse.getDate())
                     .build();
             result.add(weatherResponseInternal);
@@ -65,7 +65,7 @@ public class OWMController {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/uuuu");
         LocalDate localDate = LocalDate.now();
         return WeatherResponseInternal.builder()
-                .icon(weatherApiResponse.getWeatherList().get(0).getIcon())
+                .icon(weatherApiResponse.getWeatherList().stream().findFirst().get().getIcon())
                 .city(weatherApiResponse.getCity())
                 .date(dtf.format(localDate))
                 .temperature(weatherApiResponse.getWeatherDetails().getTemperature())
